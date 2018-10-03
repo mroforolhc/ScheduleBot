@@ -20,9 +20,10 @@ class Keyboard:
         markup = telebot.types.ReplyKeyboardMarkup()
         markup.row('Вернуться назад')
         markup.row('ИПАИТ')
-        markup.row('ИВЗО', 'ЮИ', 'АСИ')
-        markup.row('ИБиБ', 'ФКС', 'ФЕН')
-        markup.row('ИЭиУ', 'ПТИ', 'ХГФ')
+        markup.row('ИВЗО', 'ЮИ', 'АСИ', 'Филос')
+        markup.row('ИБиБ', 'ФКС', 'ФЕН', 'ФизМат')
+        markup.row('ИЭиУ', 'ПТИ', 'ХГФ', 'ФТПиС')
+        markup.row('ИстФак', 'ИФил', 'ИПиП', 'Иняз')
         self.bot.send_message(message.from_user.id, 'Выберите факультет:', reply_markup=markup)
 
     def getCourses(self, message, id):

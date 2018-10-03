@@ -20,9 +20,11 @@ class Connection:
 
 class UserPosition:
 	def __init__(self, db_url):
-		connect = Connection(db_url)
-		self.connection, self.cursor = connect
-
+		if Connection(db_url):
+			self.connection, self.cursor = Connection(db_url)
+		else:
+			print('error')
+			
 	def set_getting_position(self, user_id):
 		self.cursor.execute("INSERT INTO user_position (user_id, faculty, course, group_name) VALUES (%s, %s, %s, %s)", (user_id, 'empty', 'empty', 'empty'))
 		self.connection.commit()
